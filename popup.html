@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Bookmark Organizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">🔖</div>
+    <div class="header-text">
+      <h1>Bookmark Organizer</h1>
+      <p>Auto-categorizes from inbox folder</p>
+    </div>
+    <div class="toggle-wrap">
+      <span class="toggle-label" id="toggle-status" style="color:var(--muted)">OFF</span>
+      <label class="toggle">
+        <input type="checkbox" id="enabled-toggle" />
+        <div class="toggle-track"></div>
+        <div class="toggle-thumb"></div>
+      </label>
+    </div>
+  </div>
+
+  <!-- How-to banner -->
+  <div class="how-to">
+    When saving a bookmark, choose <strong>📥 Auto Categorize</strong>
+    as the folder → it gets sorted into a category subfolder automatically.
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab active" data-tab="log">Recent</button>
+    <button class="tab" data-tab="settings">Settings</button>
+  </div>
+
+  <!-- Log Panel -->
+  <div class="panel active" id="panel-log">
+    <div class="log-header">
+      <span id="log-count">0 bookmarks categorized</span>
+      <button class="btn-clear" id="btn-clear">Clear</button>
+    </div>
+    <div class="log-list" id="log-list">
+      <!-- Populated by script.js -->
+    </div>
+  </div>
+
+  <!-- Settings Panel -->
+  <div class="panel" id="panel-settings">
+    <div class="settings-body">
+
+      <div class="field">
+        <label>Inbox Folder Status</label>
+        <div class="inbox-status-wrap" id="inbox-status">
+          <span class="status-dot off"></span> Checking...
+        </div>
+        <div class="field-hint" style="margin-top:6px;">
+          Bookmarks saved to <strong>📥 Auto Categorize</strong>
+          are moved into category subfolders automatically.
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="field">
+        <label>Groq API Key</label>
+        <input type="password" id="api-key" placeholder="gsk_..." autocomplete="off" />
+        <div class="field-hint">
+          Get a free key (no credit card) at
+          <a href="https://console.groq.com/keys" target="_blank">console.groq.com</a>.
+          Without a key, only rule-based matching is used — unknown sites go to Other.
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="field">
+        <label>Default Categories</label>
+        <div class="categories-grid" id="categories-grid">
+          <!-- Populated by script.js from CATEGORIES in constants.js -->
+        </div>
+        <div class="field-hint" style="margin-top:6px;">
+          The AI can create new categories beyond these defaults.
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <button class="btn-save" id="btn-save">Save Settings</button>
+      <div class="save-msg hidden" id="save-msg">✓ Settings saved</div>
+
+    </div>
+  </div>
+
+  <!-- constants.js must load before script.js -->
+  <script src="constants.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
