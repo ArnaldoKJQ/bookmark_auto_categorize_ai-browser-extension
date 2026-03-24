@@ -165,6 +165,14 @@ Edit the CSS variables at the top of `style.css`:
 
 ---
 
+## Dev Log
+
+Originally built this using Gemini AI, but ran into an issue where the token limit was hit after just 11 requests — which didn’t really match what the docs said.
+
+Instead of digging too deep into that, I just switch providers and move on. The main goal was to challenge myself to build an AI-powered Chrome extension anyway, so overall, mission accomplished.
+
+---
+
 ## License
 
 MIT
